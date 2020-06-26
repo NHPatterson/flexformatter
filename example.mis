@@ -1,0 +1,103 @@
+<ImagingSequence flexImagingVersion="5.1.10-SNAPSHOT_1207_186" last_modified="2019-12-12T23:07:47">
+<Comment></Comment>
+<ResultDir></ResultDir>
+<Method>D:\Methods\Methods\191008_Pos_Small Mass_new gas Pressure.m</Method>
+<ImageFile>ImageName_0000.jpg</ImageFile>
+<OriginalImage>\\NAS-TIMSTOF\Data\Username\191212\ImageName.jpg</OriginalImage>
+<FilterList></FilterList>
+<BaseGeometry>MTP Slide Adapter II</BaseGeometry>
+<AreaColor>#c08080</AreaColor>
+<RoiColor>#80c080</RoiColor>
+<SpotColor>#8080c0</SpotColor>
+<SystemType>4</SystemType>
+<ParentMass></ParentMass>
+<FragmentMass></FragmentMass>
+<BlendImgRgn>40</BlendImgRgn>
+<BlendImgRes>50</BlendImgRes>
+<GradientMode>0</GradientMode>
+<flexControlRunVersion>0.0.0.0</flexControlRunVersion>
+<View Zoom="0" CenterPos="17400,6760" ShowImage="1" ShowImage2="0" ShowAreas="1" ShowRois="1" ShowTeachPoints="1" ShowRuler="1" ShowIntensity="0" ShowSpots="0" ShowSamplePos="1" ShowSpectra="1"></View>
+<AutoScanParameters>
+<MinMass>0</MinMass>
+<MaxMass>0</MaxMass>
+<WindowSize>0.5</WindowSize>
+<Overlap>0.1</Overlap>
+<MinPercent>10</MinPercent>
+<MaxPercent>100</MaxPercent>
+<MinRelIntens>0.2</MinRelIntens>
+</AutoScanParameters>
+<Preparation Mode="0"></Preparation>
+<SpotOffset>0,0</SpotOffset>
+<SpotDia>0</SpotDia>
+<WasRunInc>0</WasRunInc>
+<RunStep>2</RunStep>
+<RunOrder>3</RunOrder>
+<DoSourceCleaning>0</DoSourceCleaning>
+<EjectTarget>1</EjectTarget>
+<ProcessingParameters>
+<DataSource>2</DataSource>
+<DataPoints>8000</DataPoints>
+<SmoothSpectrum>0</SmoothSpectrum>
+<IcrThreshold>0.95</IcrThreshold>
+<MinMass>0</MinMass>
+<MaxMass>0</MaxMass>
+<BaselineSub>0</BaselineSub>
+<CacheData>1</CacheData>
+<CacheValid>0</CacheValid>
+<NormalizeSpectra>0</NormalizeSpectra>
+<NormalizeMethod>0</NormalizeMethod>
+<NormalizeNoiseThreshold>0.5</NormalizeNoiseThreshold>
+</ProcessingParameters>
+<HierarchClusteringParams>
+<HCLRegionsOnly>0</HCLRegionsOnly>
+<HCLSmoothing>lambda=0.1 iterations=10</HCLSmoothing>
+<HCLBlackList></HCLBlackList>
+<HCLWhiteList></HCLWhiteList>
+<HCLMassTolerance>1e-010</HCLMassTolerance>
+</HierarchClusteringParams>
+<MDFParameters>
+<MdfName></MdfName>
+<MdfSource>1</MdfSource>
+<MdfBaseMass>0</MdfBaseMass>
+<MdfRangeHi>-1</MdfRangeHi>
+<MdfRangeLo>-1</MdfRangeLo>
+<MdfMinInt>0.02</MdfMinInt>
+<MdfLlimit>0.025</MdfLlimit>
+<MdfUlimit>0.025</MdfUlimit>
+<MdfLslope>0</MdfLslope>
+<MdfUslope>0</MdfUslope>
+</MDFParameters>
+<TeachPoint>1426,686;-37789,28118</TeachPoint>
+<TeachPoint>20162,708;37263,28028</TeachPoint>
+<TeachPoint>1386,14658;-37899,-27361</TeachPoint>
+<ReferencePoint>1426,686</ReferencePoint>
+<Area Type="0" Name="05" Enabled="0" ShowSpectra="0" SpectrumColor="#ff0000">
+<Raster>20,20</Raster>
+<Method>D:\Methods\Methods\191008_Pos_Small Mass_new gas Pressure.m</Method>
+<Point>10600,1820</Point>
+<Point>14360,5180</Point>
+</Area>
+<Area Type="3" Name="01" Enabled="0" ShowSpectra="0" SpectrumColor="#993333">
+<Raster>20,20</Raster>
+<Method>D:\Methods\Methods\191008_Pos_Small Mass_new gas Pressure.m</Method>
+<Point>14840,10320</Point>
+<Point>14380,12540</Point>
+<Point>13260,12560</Point>
+<Point>12820,12280</Point>
+<Point>12800,12120</Point>
+<Point>13900,10300</Point>
+<Point>14800,10340</Point>
+</Area>
+<Area Type="0" Name="02" Enabled="0" ShowSpectra="0" SpectrumColor="#0000ff">
+<Raster>20,20</Raster>
+<Method>D:\Methods\Methods\191008_Pos_Small Mass_new gas Pressure.m</Method>
+<Point>7600,2900</Point>
+<Point>7700,2980</Point>
+</Area>
+<Area Type="0" Name="03" Enabled="0" ShowSpectra="0" SpectrumColor="#00ff00">
+<Raster>20,20</Raster>
+<Method>D:\Methods\Methods\191008_Pos_Small Mass_new gas Pressure.m</Method>
+<Point>8740,11560</Point>
+<Point>8820,11680</Point>
+</Area>
+</ImagingSequence>

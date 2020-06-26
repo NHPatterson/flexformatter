@@ -2,7 +2,7 @@
 """
 MSRC formatter
 Main routine
-Version 0.1.0
+Version 0.1.1
 Last update: 2020 - 06 - 25
 @author: Nathan Heath Patterson
 """
@@ -84,6 +84,7 @@ if __name__ == "__main__":
                         "text",
                         "text",
                     ],
+                    "allowed": [None, ["RK", "LK"], None, None, None, ["pos", "neg"]],
                 },
                 "generic": {
                     "labels": [
@@ -94,7 +95,8 @@ if __name__ == "__main__":
                     ],
                     "entries": ["", "", "", ""],
                     "separators": ["-", "-", "-", "-", "-IMS_"],
-                    "input_type": ["text", "text", "numeric", "text",],
+                    "input_type": ["text", "text", "numeric", "text"],
+                    "allowed": [None, None, None, ["pos", "neg"]],
                 },
             }
             self.template = StringVar("")
@@ -103,7 +105,7 @@ if __name__ == "__main__":
                 self,
                 self.template,
                 *self.data_template.keys(),
-                command=self.initialize_ui_from_template
+                command=self.initialize_ui_from_template,
             )
 
             tk.Label(self, text="Select naming template:").grid(row=2, column=0)
@@ -164,7 +166,7 @@ if __name__ == "__main__":
 
             yaml_fp = filedialog.askopenfilename(
                 title="Select .mis naming template .yaml file",
-                filetypes=((".yaml files", "*.yaml"), ("all files", "*.*")),
+                filetypes=((".yaml files", "*.yaml *.yml"), ("all files", "*.*")),
             )
 
             with open(yaml_fp, "r") as file:
@@ -172,12 +174,16 @@ if __name__ == "__main__":
 
             data_template["entries"] = ["" for s in data_template["labels"]]
 
+            if "allowed" not in data_template:
+                data_template["allowed"] = [None] * len(data_template["entries"])
+
             update_template = {
                 data_template["template_name"]: {
                     "labels": data_template["labels"],
                     "entries": data_template["entries"],
                     "input_type": data_template["input_type"],
                     "separators": data_template["separators"],
+                    "allowed": data_template["allowed"],
                 }
             }
             self.data_template.update(update_template)
@@ -195,7 +201,7 @@ if __name__ == "__main__":
                 self,
                 self.template,
                 *self.data_template.keys(),
-                command=self.initialize_ui_from_template
+                command=self.initialize_ui_from_template,
             )
 
             tk.Label(self, text="Select naming template:").grid(row=2, column=0)
@@ -220,8 +226,20 @@ if __name__ == "__main__":
             ]
 
             sep_strs = self.data_template[template]["separators"]
+            allowed = self.data_template[template].get(
+                "allowed", [None] * len(sep_strs)
+            )
             full_str_seq = []
-            for idx, input_str in enumerate(entry_strs_formatted):
+            for idx, (input_str, allowed_values) in enumerate(
+                zip(entry_strs_formatted, allowed)
+            ):
+                if allowed_values is not None and isinstance(allowed_values, list):
+                    if input_str not in allowed_values:
+                        messagebox.showerror(
+                            "Incorrect input!",
+                            f"Please use one of the allowed values: `{', '.join(allowed_values)}`",
+                        )
+                        raise ValueError("Incorrect input")
                 if idx < len(entry_strs_formatted) - 1:
                     full_str_seq.append(input_str)
                     full_str_seq.append(sep_strs[idx])
@@ -229,7 +247,6 @@ if __name__ == "__main__":
                     full_str_seq.append(input_str)
 
             input_strs.extend(full_str_seq)
-
             file_name_str = "".join(input_strs)
             return file_name_str
 
@@ -237,13 +254,12 @@ if __name__ == "__main__":
 
             try:
                 self.file_path_mis
-
             except AttributeError:
                 messagebox.showerror("Error!", "Please select a .mis file")
                 return
 
             file_name_str = self.format_template_str(self.template.get())
-            print(file_name_str)
+            print(f"Filename: {file_name_str}")
             formatted_mis = format_mis(self.file_path_mis, file_name_str)
             mis_out = Path(self.file_path_mis).parent / "{}.mis".format(file_name_str)
             write_mis(formatted_mis, str(mis_out))

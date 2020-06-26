@@ -1,0 +1,12 @@
+template_name: "test"
+labels:
+  [
+    "Enter Project Name (myproj1):",
+    "Enter sample name (samp01):",
+    "Enter section ID (1):",
+    "Select modality (pos/neg):",
+  ]
+entries: ["", "", "", ""]
+separators: ["-", "-", "-", "-", "-IMS_"]
+input_type: ["text", "text", "numeric", "text"]
+allowed": ["", "", "", ["pos", "neg"]]
