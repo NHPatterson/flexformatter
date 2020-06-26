@@ -45,17 +45,17 @@ if __name__ == "__main__":
         def __init__(self):
             tk.Tk.__init__(self)
 
-            if getattr(sys, "frozen", False):
-                application_path = sys._MEIPASS
-            elif __file__:
-                application_path = os.path.dirname(__file__)
+            # if getattr(sys, "frozen", False):
+            #     application_path = sys._MEIPASS
+            # elif __file__:
+            #     application_path = os.path.dirname(__file__)
 
             self.geometry("700x300+500+500")
             self.title("MSRC - flexImaging 5.0 2D image name formatter")
-            icon_file = "msrcicon.ico"
-            self.iconbitmap(default=resource_path(icon_file))
+            # icon_file = "msrcicon.ico"
+            # self.iconbitmap(default=resource_path(icon_file))
 
-            self.iconbitmap("msrcicon.ico")
+            # self.iconbitmap("msrcicon.ico")
             self.labels = []
             self.entries = []
 
